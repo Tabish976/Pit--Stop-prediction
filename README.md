@@ -1,5 +1,6 @@
 # Pit--Stop-prediction
 kaggle problem staement
+
 🏁 PitNextLap Prediction Ensemble
 This repository contains the training and ensembling stages of a machine learning pipeline designed to predict PitNextLap. The primary file, best.ipynb, handles the generation of Out-Of-Fold (OOF) predictions using a tuned CatBoost classifier and implements a stacked meta-model to combine predictions from LightGBM, XGBoost, and CatBoost.
 
