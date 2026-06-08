@@ -1,24 +1,24 @@
 # Pit--Stop-prediction
 kaggle problem staement
 
-🏁 PitNextLap Prediction Ensemble
+## 🏁 PitNextLap Prediction Ensemble
 This repository contains the training and ensembling stages of a machine learning pipeline designed to predict PitNextLap. The primary file, best.ipynb, handles the generation of Out-Of-Fold (OOF) predictions using a tuned CatBoost classifier and implements a stacked meta-model to combine predictions from LightGBM, XGBoost, and CatBoost.
 
-🧠 Interesting Techniques
+## 🧠 Interesting Techniques
 🔄 Out-of-Fold (OOF) Stacking: The pipeline uses Stratified K-Fold cross-validation to train base models and predict on the holdout sets. This prevents data leakage when passing these predictions as features to the meta-model.
 
 🎯 Threshold Optimization: Instead of using a default 0.5 decision boundary, the script sweeps a range of probability thresholds (0.05 to 0.95) to find the exact cutoff that maximizes the F1 score.
 
 ⚡ Decoupled Architecture: Features (X.npy, y.npy) and hyperparameters (cat_tuning_result.pkl) are pre-computed and loaded directly from a caching directory. This separates data processing from model training, speeding up iteration.
 
-🛠️ Technologies and Libraries
+## 🛠️ Technologies and Libraries
 🐈 CatBoost: A gradient boosting library on decision trees. The notebook utilizes its native GPU acceleration (task_type='GPU') and built-in class balancing (auto_class_weights='Balanced').
 
 🔬 Scikit-learn: Used for model evaluation (ROC AUC, F1), scaling intermediate predictions (StandardScaler), and providing the LogisticRegression meta-model for the final ensemble.
 
 🔢 NumPy & 🐼 Pandas: Handling matrix operations, loading arrays, and building the final submission CSV.
 
-📂 Project Structure
+## 📂 Project Structure
 Plaintext
 .
 ├── 📁 pipeline_cache/
